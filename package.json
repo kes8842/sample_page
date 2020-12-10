@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/core": "^7.12.10",
     "@zeit/next-sass": "^1.0.1",
     "autobind-decorator": "^2.4.0",
     "axios": "^0.21.0",
