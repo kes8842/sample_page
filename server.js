@@ -19,6 +19,11 @@ app.prepare().then(() => {
         return app.render(req, res, page, { title: 'next' })
     })
 
+    server.get('/test', (req, res) => {
+        const page = '/test'
+        return app.render(req, res, page, { title: 'next' })
+    })
+
     server.get('*', (req, res) => {
         return handle(req, res)
     })
