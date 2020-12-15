@@ -1,4 +1,6 @@
-import * as postAction from "./postAction";
-import * as transAction from "./translate/translateAction";
+import { combineReducers } from "redux";
+import { translateReducer } from "./translate/translateReducer";
 
-export default { postAction, transAction };
+export default combineReducers({
+  translate: translateReducer,
+});
