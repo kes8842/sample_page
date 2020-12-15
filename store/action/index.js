@@ -1,6 +1,3 @@
-import { combineReducers } from "redux";
-import { translateReducer } from "./translate/translateReducer";
+import * as transAction from "./translate/translateAction";
 
-export default combineReducers({
-  translate: translateReducer,
-});
+export default { transAction };
