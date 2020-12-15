@@ -7,13 +7,14 @@ const dev = process.env.NODE_ENV !== 'production'
 
 const app = next({ dev })
 const handle = app.getRequestHandler()
-const commonApi = require('./routes/common-api')
+const commonApi = require('./route/common-api')
 
 app.prepare().then(() => {
     const server = express()
     server.use(bodyParser.json())
     server.use(express.static(path.join(__dirname, '/public')))
-    server.use('api', commonApi)
+    server.use('/api', commonApi)
+
     server.get('/', (req, res) => {
         const page = '/index'
         return app.render(req, res, page, { title: 'next' })
@@ -22,6 +23,10 @@ app.prepare().then(() => {
     server.get('/translate', (req, res) => {
         const page = '/translate/translate'
         return app.render(req, res, page)
+    })
+
+    server.get('/test', (req, res) => {
+        res.send('??')
     })
 
     server.get('*', (req, res) => {
