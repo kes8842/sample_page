@@ -1,0 +1,32 @@
+$black-color: #222;
+$orange-color: #ff6801;
+$grey-light: #999;
+$border-color: #ebebeb;
+
+.transContainer {
+  padding: 50px 100px 50px 70px;
+
+  .transTextArea {
+    display: block;
+    width: 100%;
+    height: 150px;
+    border: 2px solid $border-color;
+    line-height: normal;
+    box-sizing: border-box;
+    font-family: "Montserrat";
+    font-weight: 500;
+    font-size: 13px;
+  }
+}
+
+.submit {
+  width: 80px;
+  height: 40px;
+  display: inline-block;
+  font-family: "Poppins";
+  font-weight: 400;
+  font-size: 13px;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
