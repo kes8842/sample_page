@@ -1,4 +1,4 @@
 
-import * as transAction from "./translate/translateAction";
+import * as transAction from "./translate/trans-action";
 
 export default { transAction };

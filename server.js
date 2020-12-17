@@ -8,6 +8,7 @@ const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
 const handle = app.getRequestHandler()
 const commonApi = require('./route/common-api')
+require('dotenv').config({ path: path.resolve(__dirname, process.env.NODE_ENV === 'production' ? '.prod.env' : '.dev.env') })
 
 app.prepare().then(() => {
     const server = express()
@@ -35,7 +36,7 @@ app.prepare().then(() => {
 
     server.listen(3002, (err) => {
         if (err) throw err
-
+        console.log(process.env.test)
         console.log('localhost 3002 listen')
     })
 }).catch((ex) => {

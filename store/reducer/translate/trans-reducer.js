@@ -1,5 +1,5 @@
 import action from "../../action";
-import { UPDATE_RESULT } from "../../action/translate/translateAction";
+import { UPDATE_RESULT } from "../../action/translate/trans-action";
 
 const { UPDATE_SOURCE, UPDATE_TARGET, CALL_TRANS_API } = action.transAction;
 

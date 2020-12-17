@@ -4,7 +4,7 @@ import {
   CALL_TRANS_API,
   callTransPai,
   updateResult,
-} from "../../store/action/translate/translateAction";
+} from "../../store/action/translate/trans-action";
 
 const test = async (source, target, value) => {
   const data = await axios.get(
