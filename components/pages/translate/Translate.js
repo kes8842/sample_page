@@ -7,7 +7,7 @@ import {
   updateSource,
   updateTarget,
   callTransPai,
-} from "../../../store/action/translate/translateAction";
+} from "../../../store/action/translate/trans-action";
 
 class Translate extends Component {
   textValue = React.createRef();
