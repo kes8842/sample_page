@@ -1,7 +1,9 @@
-  
-import { spawn } from "redux-saga/effects";
+
+import { fork, spawn, all } from "redux-saga/effects";
 import translate from "./translate/translate";
+import login from "./login/login-saga";
 
 export default function* rootSaga() {
-  yield spawn(translate);
+  yield fork(translate)
+  yield fork(login)
 }

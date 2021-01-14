@@ -1,9 +1,13 @@
-const Index = () => {
-    return(
-        <div>
-            hello
-        </div>
+import Page from "../components/common/page";
+import Index from '../components/pages';
+
+const IndexPage = () => {
+
+    return (
+        <Page>
+            <Index />
+        </Page>
     )
 }
 
-export default Index;
+export default IndexPage;

@@ -1,5 +1,3 @@
-const axios = require("axios");
-
 const UPDATE_SOURCE = "UPDATE_SOURCE";
 const UPDATE_TARGET = "UPDATE_TARGET";
 const UPDATE_RESULT = "UPDATE_RESULT";
