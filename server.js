@@ -18,7 +18,7 @@ require('dotenv').config({ path: path.resolve(__dirname, process.env.NODE_ENV ==
 app.prepare().then(() => {
     const server = express()
     server.use(bodyParser.json())
-    server.use(express.static(path.join(__dirname, '/public')))
+    server.use(express.static(__dirname + '/../../public'));
     server.use(cookieParser(process.env.COOKIE_SECRET))
     server.use(session({
         resave: false,
@@ -29,22 +29,31 @@ app.prepare().then(() => {
             secure: false,
         }
     }))
+
+    server.get('/_next/*', (req, res) => {
+        handle(req, res);
+    })
+
+    server.get('/static/*', (req, res) => {
+        handle(req, res);
+    })
+    
+    server.get('/',(req, res) => {
+        const page = '/index'
+        return app.render(req, res, page)
+    })
+
     server.use(passport.initialize())
     server.use(passport.session())
     require('./passport').config(passport)
+
     server.use('/api', commonApi)
     server.use('/login-api', loginApi)
-
 
     const authCheck = (req, res, next) => {
         if (req.isAuthenticated()) return next()
         res.redirect('/loginPage')
     }
-
-    server.get('/', (req, res) => {
-        const page = '/index'
-        return app.render(req, res, page, { title: 'next' })
-    })
 
     server.get('/translate', authCheck, (req, res) => {
         const page = '/translate/translate'
@@ -56,13 +65,6 @@ app.prepare().then(() => {
         return app.render(req, res, page)
     })
 
-    server.get('/test', (req, res) => {
-        res.send('??')
-    })
-
-    server.get('*', (req, res) => {
-        return handle(req, res)
-    })
 
     server.listen(3002, (err) => {
         if (err) throw err
