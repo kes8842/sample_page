@@ -9,7 +9,7 @@ exports.config = (passport) => {
 
     passport.deserializeUser((id, done) => {
         const result = users.filter((user) => user.id === id)
-
+        console.log(id)
         if (result.length > 0) {
             done(null, result[0])
         }
